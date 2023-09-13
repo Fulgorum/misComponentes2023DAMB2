@@ -1,0 +1,7 @@
+{
+  "name": "misComponentes2023DAMB2",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
