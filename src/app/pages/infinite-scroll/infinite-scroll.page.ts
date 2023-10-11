@@ -1,6 +1,6 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {timeout} from "rxjs";
-import {load} from "@angular-devkit/build-angular/src/utils/server-rendering/esm-in-memory-file-loader";
+import {IonInfiniteScroll} from "@ionic/angular";
 
 @Component({
   selector: 'app-infinite-scroll',
@@ -8,7 +8,8 @@ import {load} from "@angular-devkit/build-angular/src/utils/server-rendering/esm
   styleUrls: ['./infinite-scroll.page.scss'],
 })
 export class InfiniteScrollPage implements OnInit {
-  data: any;
+  @ViewChild(IonInfiniteScroll, {static: false}) infiniteScroll!: IonInfiniteScroll;
+  data: any[] = Array(20);
 
   constructor() {
   }
@@ -16,8 +17,14 @@ export class InfiniteScrollPage implements OnInit {
   ngOnInit() {
   }
 
-  load(event: any) {
+  loadData(event: any) {
+    console.log('Cargando siguientes ...');
     setTimeout(() => {
+      if (this.data.length > 50) {
+        event.target.complete();
+        this.infiniteScroll.disabled = true;
+        return;
+      }
       const nuevoArr: any[] = Array(20);
       this.data.push(...nuevoArr);
       event.target.complete();
@@ -25,6 +32,4 @@ export class InfiniteScrollPage implements OnInit {
     })
   }
 
-  protected readonly load = load;
-  protected readonly load = load;
 }

@@ -37,7 +37,7 @@
   {
     "nombre": "Listas",
     "ruta": "/list",
-    "icono": "lista"
+    "icono": "list"
   },
   {
     "nombre": "Infinite Scroll",
