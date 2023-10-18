@@ -67,7 +67,7 @@ export class ListPage implements OnInit {
     this.lista.closeSlidingItems();
   }
 
-  reordenar(event: any) {
+  reordenar(event: any): void {
     console.log(event);
     const itemMover: Usuario = this.usarios.splice(event.detail.from, 1)[0];
     this.usarios.splice(event.detail.to, 0, itemMover);

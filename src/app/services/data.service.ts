@@ -3,6 +3,8 @@ import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {Componente} from "../common/interfaces";
 import {Usuario} from "../common/users";
+import {environment} from "../../environments/environment";
+import {ApiPeliculas} from "../common/peliculas";
 
 @Injectable({
   providedIn: 'root'
@@ -18,5 +20,9 @@ export class DataService {
 
   getUsers(): Observable<Usuario[]> {
     return this.http.get<Usuario[]>('https://jsonplaceholder.typicode.com/users');
+  }
+
+  loadMovies(page: number): Observable<ApiPeliculas> {
+    return this.http.get<any>(`${environment.baseURL}movie/popular?api_key=${environment.apiKey}&page=${page}`);
   }
 }
