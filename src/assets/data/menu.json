@@ -53,5 +53,15 @@
     "nombre": "Slides  2",
     "ruta": "/slides2",
     "icono": "albums-outline"
+  },
+  {
+    "nombre": "Modal",
+    "ruta": "/modal",
+    "icono": "phone-portrait"
+  },
+  {
+    "nombre": "Tabs",
+    "ruta": "/tabs",
+    "icono": "cog"
   }
 ]
